@@ -23,11 +23,11 @@
     <main class="main">
 
         <!-- modal windows wtf new text-->
+        <div id="blur"></div>
         
         <div class="modal-create-group">
-            <div class="modal-create-group-close">
-                <img class="icon-settings" alt="Х" src="../src/icons/icon-close.svg"/>
-            </div>
+            <img class="icon-settings modal-create-group-close text-center-center" alt="Х" src="../src/icons/icon-close.svg"/>
+
             <div class="modal-create-group-title">
                 Создание новой группы
             </div>
@@ -36,59 +36,59 @@
             </div>
             <form id="modal-create-group-form">
                 <div class="form-item modal-create-group-form-name">
-                    <div class="form-item-text">
-                        <div class="form-item-text-title">
-                            Name:
-                        </div>
-                        <div class="form-item-text-explanation">
-                            Test explanation
-                        </div>
+                    <div class="form-item-title">
+                        Name:
                     </div>
+                    
                     <input type="text" id="modal-create-group-form-input-name" placeholder="Введите название группы">
-                </div>
-                <div class="form-item modal-create-group-form-password"></div>
-                    <div class="form-item-text">
-                        <div class="form-item-text-title">
-                            Password:
-                        </div>
-                        <div class="form-item-text-explanation">
-                            Test explanation
-                        </div>
+                    
+                    <div class="form-item-explanation">
+                        Test explanation
                     </div>
+                </div>
+                <div class="form-item modal-create-group-form-password">
+                    <div class="form-item-title">
+                        Password:
+                    </div>
+                    
                     <input type="password" id="modal-create-group-form-input-password" placeholder="Введите пароль группы">
-                </div>
-                <div class="form-item modal-create-group-form-topic-limit"></div>
-                    <div class="form-item-text">
-                        <div class="form-item-text-title">
-                            Лимит по кол-ву докладов:
-                        </div>
-                        <div class="form-item-text-explanation">
-                            Устанавливает ограничение по количеству докладов на каждого участника
-                        </div>
+                    
+                    <div class="form-item-explanation">
+                        Test explanation
                     </div>
+                </div>
+                <div class="form-item modal-create-group-form-topic-limit">
+                    <div class="form-item-title">
+                        Лимит по кол-ву докладов:
+                    </div>
+                    
                     <input type="number" id="modal-create-group-form-input-topic-limit" placeholder="Например, 8 докладов">
-                </div>
-                <div class="form-item modal-create-group-form-exceed-topic-limit"></div>
-                    <div class="form-item-text">
-                        <div class="form-item-text-title">
-                            Превышать лимит докладов:
-                        </div>
-                        <div class="form-item-text-explanation">
-                            Позволяет участникам превышать лимит по количеству докладов
-                        </div>
+                    
+                    <div class="form-item-explanation">
+                        Устанавливает ограничение по количеству докладов на каждого участника
                     </div>
+                </div>
+                <div class="form-item modal-create-group-form-exceed-topic-limit">
+                    <div class="form-item-title">
+                        Превышать лимит докладов:
+                    </div>
+                    
                     <input type="checkbox" id="modal-create-group-form-input-exceed-topic-limit">
-                </div>
-                <div class="form-item modal-create-group-form-teacher"></div>
-                    <div class="form-item-text">
-                        <div class="form-item-text-title">
-                            Создать роль преподавателя:
-                        </div>
-                        <div class="form-item-text-explanation">
-                            Создает отдельную роль 'Преподаватель', которая позволяет оценивать доклады. Иначе 'преподавателем' будете вы
-                        </div>
+                    
+                    <div class="form-item-explanation">
+                        Позволяет участникам превышать лимит по количеству докладов
                     </div>
+                </div>
+                <div class="form-item modal-create-group-form-teacher">
+                    <div class="form-item-title">
+                        Создать роль преподавателя:
+                    </div>
+                    
                     <input type="checkbox" id="modal-create-group-form-input-teacher">
+                    
+                    <div class="form-item-explanation">
+                        Создает отдельную роль 'Преподаватель', которая позволяет оценивать доклады. Иначе 'преподавателем' будете вы
+                    </div>
                 </div>
                 <input type="submit" class="form-item form-item-submit" value="Создать группу"/>
             </form>
