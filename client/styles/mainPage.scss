@@ -1,0 +1,336 @@
+.main{ // основной контент страницы
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    overflow: hidden;
+
+    //локальные переменные в main
+    --width-groups: 380px;
+    --width-users: 320px;
+    --width-input: 50%;
+    --width-deadline: 110px;
+    --width-topics: 100px;
+    --width-show-more: 60px;
+    --width-settings: 100px;
+    --width-credit: 80px;
+    --width-status: 90px;
+
+    --height-group: 50px;
+    --height-topic: 35px;
+    --height-input: 30px;
+
+    &>*{
+        border-radius: var(--border-radius);
+        height: 100%;
+    }
+
+    &-groups{ // список групп
+        flex-shrink: 0;
+        width: var(--width-groups);
+        background-color: var(--bg-color-3);
+        margin: 0 var(--margin-normal);
+        display: flex;
+        flex-direction: column;
+
+        &-title{ // заголовок списка
+            font-size: var(--font-size-title);
+            margin: var(--margin-small) 0;
+            cursor: default;
+        }
+
+        &-grouplist{ // обертка списка
+            flex-grow: 1;
+        }
+
+        &-create{ // кнопка добавить новую группу
+            display: flex;
+            flex-direction: row-reverse;
+            margin: var(--margin-small);
+        }
+    }
+
+    &-workspace{ // область с семинарами и докладами
+        flex-grow: 1;
+        background-color: var(--bg-color-2);
+        display: flex;
+        flex-flow: column nowrap;
+    }
+
+    &-users{ // список пользователей
+        width: var(--width-users);
+        flex-shrink: 0;
+        background-color: var(--bg-color-3);
+        margin: 0 var(--margin-normal);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+
+        &-wrapper{ // обертка списка
+            margin: var(--margin-small) 0 var(--margin-normal) var(--margin-small) ;
+            display: flex;
+            flex-direction: column;
+        }
+
+        &-role{ // текст с названием роли и кол-вом человек
+            color: var(--text-color-placeholder);
+            margin: var(--margin-small) 0;
+
+            &:first-child{ // убирает отступ сверху у самого первого элемента списка
+                margin-top: 0;
+            }
+        }
+    }
+}
+
+// in main-group
+
+.group{ // элемент списка групп
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-small);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: var(--height-group);
+    margin: var(--margin-small) var(--margin-small) 0;
+    transition: background-color .2s;
+
+    &:hover{
+        background-color: var(--btn-color);
+    }
+
+    &-title{ // название группы
+        margin: 0 var(--margin-small);
+        flex-grow: 1;
+        cursor: default;
+        white-space: nowrap; 
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: var(--font-size-name);
+    }
+    &-settings{ // кнопка настроек
+        margin: 0 var(--margin-small);
+    }
+}
+
+// in main-workspace
+
+.seminar{ // элемент списка семинаров
+    margin: 0 var(--margin-small);
+    background-color: var(--bg-color-3);
+    display: flex;
+    flex-flow: column;
+    font-size: var(--font-size-text);
+    border-radius: var(--border-radius-small);
+
+    &-header{ // заголовочная строчка для сортировки
+        background-color: transparent;
+        margin-right: calc(var(--margin-small) + var(--scroll-bar-width));
+    }
+    &-wrapper{ // обертка списка семинаров
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        row-gap: var(--margin-small);
+    }
+
+    &-head{ // заголовок семинара
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        align-items: center;
+        height: var(--height-group);
+
+        &>*{
+            border-left: 1px solid var(--border-color);
+            &>p{
+                font-size: inherit;
+            }
+        }
+
+        &-name{ // название семинара
+            flex-grow: 1;
+            font-size: var(--font-size-name);
+            cursor: default;
+            margin-left: var(--margin-small);
+            border: none;
+        }
+
+        &-deadline{ // дата окончания
+            width: var(--width-deadline);
+        }
+
+        &-topics{ // кол-во свободных докладов
+            width: var(--width-topics);
+        }
+
+        &-showMore{ // кнопка размернуть
+            width: var(--width-show-more);
+        }
+
+        &-settings{ // кнопка настроек
+            width: var(--width-settings);
+        }
+    }
+
+    &-body{ // тело семинара (список докладов)
+        background-color: var(--bg-color-4);
+        margin: var(--margin-small);
+        border-radius: var(--border-radius-small);
+        display: flex;
+        flex-direction: column;
+
+        &-topic{ // доклад
+            background-color: var(--bg-color-5);
+            border-radius: var(--border-radius-tiny);
+            margin: var(--margin-small);
+
+            &-header{ // заголовочная строчка для сортировки
+                margin: 0 var(--margin-small);
+            }
+
+            &-head{ // заголовок доклада
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: flex-start;
+                align-items: center;
+                height: var(--height-topic);  
+                
+                &>*{
+                    border-left: 1px solid var(--border-color);
+                }
+
+                &-name{ // название доклада
+                    flex-grow: 1;
+                    margin-left: var(--margin-small);
+                    border: none;
+                }
+    
+                &-credit{ // оценка доклада
+                    width: var(--width-credit);
+                }
+                &-status{ // кол-во свободных мест / всего мест
+                    width: var(--width-status);
+                }
+                &-showMore{ // кнопка развернуть
+                    width: var(--width-show-more);
+                }
+                &-settings{ // кнопка настроек
+                    width: var(--width-settings);
+                }
+            }
+
+            &-body{ // тело доклада
+                margin: var(--margin-small);
+                position: relative;
+
+                &>*{
+                    margin: var(--margin-small) 0;
+                }
+                &-questions{ // список вопросов к докладу
+                    display: flex;
+                    flex-flow: row nowrap;
+                    column-gap: var(--margin-small);
+
+                    &-wrapper{ // обертка списка вопросов
+                        display: flex;
+                        flex-direction: column;
+                        row-gap: var(--margin-small);
+
+                        .question{
+                            color: var(--text-color-question);
+                        }
+                    }
+                    &-input{ // инпут для ввода вопроса
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-start;
+                        align-items: center;
+                        column-gap: var(--margin-small);
+                        &>input{
+                            height: var(--height-input);
+                            border: none;
+                        }
+                        &>input[type=text]{ // поле ввода
+                            border-bottom: 1px solid var(--border-color);
+                            width: var(--width-input);
+                            color: var(--text-color-question);
+                        }
+                        &>input[type=image]{ // кнопка отправить
+                            background-color: var(--btn-color);
+                            border-radius: var(--border-radius-micro);
+                            transition: background-color var(--transition-time-short);
+                            height: calc(var(--height-input) - 8px);
+                            padding: 4px;
+
+                            &:hover{
+                                background-color: var(--btn-color-hover);
+                            }
+                        }
+                    }
+                }
+
+                &-files{ // загруженная презентация
+                    display: flex;
+                    flex-flow: row wrap;
+                    justify-content: flex-start;
+                    align-items: center;
+                    column-gap: var(--margin-small);
+                    cursor:  default;
+                }
+
+                &-join{ // кнопка присоединения к выполнению доклада
+                    padding: .5em 1em;
+                    border-radius: var(--border-radius-small);
+                    background-color: var(--btn-color);
+                    font-size: var(--font-size-name);
+                    position: absolute;
+                    bottom: 0; right: 0;
+                    cursor: default;
+                    transition: background-color var(--transition-time-short);
+
+                    &:hover{
+                        background-color: var(--btn-color-hover);
+                    }
+                }
+            }
+        }
+
+        &-create{ // кнопка создания нового доклада
+            display: flex;
+            flex-direction: row-reverse;
+            margin: 0 var(--margin-small) var(--margin-small) 0;
+
+            .create-topic{
+                border-radius: 50%;
+                cursor: default;
+            }
+        }
+    }
+
+    &-create{ // кнопка создания нового семинара
+        display: flex;
+        flex-flow: row-reverse nowrap;
+        margin: var(--margin-small);
+    }
+}
+
+// in main-users
+
+.users-user{ // элемент списка пользователей
+    display: flex;
+    flex-flow: row nowrap;
+    margin-bottom: var(--margin-small);
+    height: var(--height-group);
+
+    &-avatar{ // аватарка пользователя
+        border-radius: 50%;
+        margin-right: var(--margin-small);
+    }
+    &-name{ // имя фамилия отчество пользователя
+        flex-grow: 1;
+        white-space: wrap; 
+    }
+}
+

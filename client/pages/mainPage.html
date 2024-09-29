@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskMaster</title>
+    <link rel="stylesheet" type="text/css" href="../styles/presets.css">
+    <link rel="stylesheet" type="text/css" href="../styles/header.css">
+    <link rel="stylesheet" type="text/css" href="../styles/mainPage.css">
+    <link rel="stylesheet" type="text/css" href="../styles/footer.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-logo site-logo">
+            <strong>Task</strong>Master
+        </div>
+        <div class="header-profile">
+            <img class="header-profile-avatar" alt="Аватар" src="../src/icons/avatar_void.png"/>
+            <div class="header-profile-name text-left-center">Иван Иванович</div>
+            <img class="header-profile-showMore icon-settings" alt="Развернуть" src="../src/icons/icon-show-more.svg"/>
+        </div>
+    </header>
+    <main class="main">
+
+        <!-- modal windows -->
+        
+        <div class="modal-create-group">
+            <div class="modal-create-group-close">
+                <img class="icon-settings" alt="Х" src="../src/icons/icon-close.svg"/>
+            </div>
+            <div class="modal-create-group-title">
+                Создание новой группы
+            </div>
+            <div class="modal-create-group-info">
+                В данной группе у вас будет роль администратора, что позволит вам создавать семинары и темы для докладов в каждом из них. Вы сможете в любое время изменить параметры семинаров и докладов.
+            </div>
+            <form id="modal-create-group-form">
+                <div class="form-item modal-create-group-form-name">
+                    <div class="form-item-text">
+                        <div class="form-item-text-title">
+                            Name:
+                        </div>
+                        <div class="form-item-text-explanation">
+                            Test explanation
+                        </div>
+                    </div>
+                    <input type="text" id="modal-create-group-form-input-name" placeholder="Введите название группы">
+                </div>
+                <div class="form-item modal-create-group-form-password"></div>
+                    <div class="form-item-text">
+                        <div class="form-item-text-title">
+                            Password:
+                        </div>
+                        <div class="form-item-text-explanation">
+                            Test explanation
+                        </div>
+                    </div>
+                    <input type="password" id="modal-create-group-form-input-password" placeholder="Введите пароль группы">
+                </div>
+                <div class="form-item modal-create-group-form-topic-limit"></div>
+                    <div class="form-item-text">
+                        <div class="form-item-text-title">
+                            Лимит по кол-ву докладов:
+                        </div>
+                        <div class="form-item-text-explanation">
+                            Устанавливает ограничение по количеству докладов на каждого участника
+                        </div>
+                    </div>
+                    <input type="number" id="modal-create-group-form-input-topic-limit" placeholder="Например, 8 докладов">
+                </div>
+                <div class="form-item modal-create-group-form-exceed-topic-limit"></div>
+                    <div class="form-item-text">
+                        <div class="form-item-text-title">
+                            Превышать лимит докладов:
+                        </div>
+                        <div class="form-item-text-explanation">
+                            Позволяет участникам превышать лимит по количеству докладов
+                        </div>
+                    </div>
+                    <input type="checkbox" id="modal-create-group-form-input-exceed-topic-limit">
+                </div>
+                <div class="form-item modal-create-group-form-teacher"></div>
+                    <div class="form-item-text">
+                        <div class="form-item-text-title">
+                            Создать роль преподавателя:
+                        </div>
+                        <div class="form-item-text-explanation">
+                            Создает отдельную роль 'Преподаватель', которая позволяет оценивать доклады. Иначе 'преподавателем' будете вы
+                        </div>
+                    </div>
+                    <input type="checkbox" id="modal-create-group-form-input-teacher">
+                </div>
+                <input type="submit" class="form-item form-item-submit" value="Создать группу"/>
+            </form>
+        </div>
+
+        <!-- visible parts -->
+
+        <div class="main-groups">
+            <p class="main-groups-title text-center-center">Группы</p>
+            <div class="main-groups-grouplist scrollable">
+                <div class="group">
+                    <p class="group-title" title="История ЭФБО-01-23">История ЭФБО-01-23</p>
+                    <img class="group-settings icon-settings spin180" alt="Настройки" src="../src/icons/icon-settings.svg"/>
+                </div>
+                <div class="group">
+                    <p class="group-title" title="Психология ЭФБО-01-23">Психология ЭФБО-01-23</p>
+                    <img class="group-settings icon-settings spin180" alt="Настройки" src="../src/icons/icon-settings.svg"/>
+                </div>
+                <div class="group">
+                    <p class="group-title" title="Русский язык ЭФБО-01-23">Русский язык ЭФБО-01-23</p>
+                    <img class="group-settings icon-settings spin180" alt="Настройки" src="../src/icons/icon-settings.svg"/>
+                </div>
+                <div class="group">
+                    <p class="group-title" title="Технологии индустриального программирования ЭФБО-01-23">Технологии индустриального программирования ЭФБО-01-23</p>
+                    <img class="group-settings icon-settings spin180" alt="Настройки" src="../src/icons/icon-settings.svg"/>
+                </div>
+                <div class="group">
+                    <p class="group-title" title="Создание программного обеспечения ЭФБО-01-23">Создание программного обеспечения ЭФБО-01-23</p>
+                    <img class="group-settings icon-settings spin180" alt="Настройки" src="../src/icons/icon-settings.svg"/>
+                </div>
+                <div class="group">
+                    <p class="group-title" title="Создание программного обеспечения ЭФБО-01-23">Создание программного обеспечения ЭФБО-01-23</p>
+                    <img class="group-settings icon-settings spin180" alt="Настройки" src="../src/icons/icon-settings.svg"/>
+                </div>
+                <div class="group">
+                    <p class="group-title" title="Создание программного обеспечения ЭФБО-01-23">Создание программного обеспечения ЭФБО-01-23</p>
+                    <img class="group-settings icon-settings spin180" alt="Настройки" src="../src/icons/icon-settings.svg"/>
+                </div>
+                <div class="group">
+                    <p class="group-title" title="Создание программного обеспечения ЭФБО-01-23">Создание программного обеспечения ЭФБО-01-23</p>
+                    <img class="group-settings icon-settings spin180" alt="Настройки" src="../src/icons/icon-settings.svg"/>
+                </div>
+                <div class="group">
+                    <p class="group-title" title="Создание программного обеспечения ЭФБО-01-23">Создание программного обеспечения ЭФБО-01-23</p>
+                    <img class="group-settings icon-settings spin180" alt="Настройки" src="../src/icons/icon-settings.svg"/>
+                </div>
+                <div class="group">
+                    <p class="group-title" title="Создание программного обеспечения ЭФБО-01-23">Создание программного обеспечения ЭФБО-01-23</p>
+                    <img class="group-settings icon-settings spin180" alt="Настройки" src="../src/icons/icon-settings.svg"/>
+                </div>
+                <div class="group">
+                    <p class="group-title" title="Создание программного обеспечения ЭФБО-01-23">Создание программного обеспечения ЭФБО-01-23</p>
+                    <img class="group-settings icon-settings spin180" alt="Настройки" src="../src/icons/icon-settings.svg"/>
+                </div>
+                <div class="group">
+                    <p class="group-title" title="Создание программного обеспечения ЭФБО-01-23">Создание программного обеспечения ЭФБО-01-23</p>
+                    <img class="group-settings icon-settings spin180" alt="Настройки" src="../src/icons/icon-settings.svg"/>
+                </div>
+                <div class="group">
+                    <p class="group-title" title="Создание программного обеспечения ЭФБО-01-23">Создание программного обеспечения ЭФБО-01-23</p>
+                    <img class="group-settings icon-settings spin180" alt="Настройки" src="../src/icons/icon-settings.svg"/>
+                </div>
+                <div class="group">
+                    <p class="group-title" title="Создание программного обеспечения ЭФБО-01-23">Создание программного обеспечения ЭФБО-01-23</p>
+                    <img class="group-settings icon-settings spin180" alt="Настройки" src="../src/icons/icon-settings.svg"/>
+                </div>
+                <div class="group">
+                    <p class="group-title" title="Создание программного обеспечения ЭФБО-01-23">Создание программного обеспечения ЭФБО-01-23</p>
+                    <img class="group-settings icon-settings spin180" alt="Настройки" src="../src/icons/icon-settings.svg"/>
+                </div>
+                <div class="group">
+                    <p class="group-title" title="Создание программного обеспечения ЭФБО-01-23">Создание программного обеспечения ЭФБО-01-23</p>
+                    <img class="group-settings icon-settings spin180" alt="Настройки" src="../src/icons/icon-settings.svg"/>
+                </div>
+                <div class="group">
+                    <p class="group-title" title="Создание программного обеспечения ЭФБО-01-23">Создание программного обеспечения ЭФБО-01-23</p>
+                    <img class="group-settings icon-settings spin180" alt="Настройки" src="../src/icons/icon-settings.svg"/>
+                </div>
+                <div class="group">
+                    <p class="group-title" title="Создание программного обеспечения ЭФБО-01-23">Создание программного обеспечения ЭФБО-01-23</p>
+                    <img class="group-settings icon-settings spin180" alt="Настройки" src="../src/icons/icon-settings.svg"/>
+                </div>
+            </div>
+            <div class="main-groups-create">
+                <div class="add_btn text-center-center">
+                    <img class="icon-settings" alt="+" src="../src/icons/icon-add.svg"/>
+                </div>
+            </div>
+        </div>
+        <div class="main-workspace">
+            <!--<p id="no-seminars">There are no seminars here yet</p>-->
+            <div class="seminar seminar-head seminar-header">
+                <div class="seminar-head-name">
+                    <p class="text-left-center">Название</p>
+                </div>
+                <div class="seminar-head-deadline">
+                    <p class="text-center-center">Дедлайн</p>
+                </div>
+                <div class="seminar-head-topics">
+                    <p class="text-center-center">Свободно</p>
+                </div>
+                <div class="seminar-head-showMore text-center-center">Инфо</div>
+                <div class="seminar-head-settings text-center-center">Настройки</div>
+            </div>
+            <div class="seminar-wrapper scrollable">
+
+                <div class="seminar">
+                    <div class="seminar-head">
+                        <div class="seminar-head-name">
+                            <p class="text-left-center">Семинар №1</p>
+                        </div>
+                        <div class="seminar-head-deadline">
+                            <p class="text-center-center">06.09.2024</p>
+                        </div>
+                        <div class="seminar-head-topics">
+                            <p class="text-center-center">0 / 6</p>
+                        </div>
+                        <div class="seminar-head-showMore text-center-center"><img class="icon-settings icon-showMore" alt="Показать еще" src="../src/icons/icon-show-more.svg"></div>
+                        <div class="seminar-head-settings text-center-center"><img class="icon-settings spin180" alt="Настройки" src="../src/icons/icon-settings.svg"></div>
+                    </div>
+                </div>
+
+                <div class="seminar">
+                    <div class="seminar-head">
+                        <div class="seminar-head-name">
+                            <p class="text-left-center">Семинар №2</p>
+                        </div>
+                        <div class="seminar-head-deadline">
+                            <p class="text-center-center">13.09.2224</p>
+                        </div>
+                        <div class="seminar-head-topics">
+                            <p class="text-center-center">1 / 5</p>
+                        </div>
+                        <div class="seminar-head-showMore text-center-center"><img class="icon-settings icon-showMore" alt="Показать еще" src="../src/icons/icon-show-more.svg"></div>
+                        <div class="seminar-head-settings text-center-center"><img class="icon-settings spin180" alt="Настройки" src="../src/icons/icon-settings.svg"></div>
+                    </div>
+                </div>
+
+                <div class="seminar">
+                    <div class="seminar-head">
+                        <div class="seminar-head-name">
+                            <p class="text-left-center">Семинар №3</p>
+                        </div>
+                        <div class="seminar-head-deadline">
+                            <p class="text-center-center">26.10.2224</p>
+                        </div>
+                        <div class="seminar-head-topics">
+                            <p class="text-center-center">0 / 6</p>
+                        </div>
+                        <div class="seminar-head-showMore text-center-center"><img class="icon-settings icon-showMore" alt="Показать еще" src="../src/icons/icon-show-more.svg" style="rotate: 180deg;"></div>
+                        <div class="seminar-head-settings text-center-center"><img class="icon-settings spin180" alt="Настройки" src="../src/icons/icon-settings.svg"></div>
+                    </div>
+                    <div class="seminar-body">
+                        <div class="seminar-body-topic-head seminar-body-topic-header">
+                            <div class="seminar-body-topic-head-name">
+                                <p class="text-left-center">Название</p>
+                            </div>
+                            <div class="seminar-body-topic-head-credit">
+                                <p class="text-center-center">Оценка</p>
+                            </div>
+                            <div class="seminar-body-topic-head-status">
+                                <p class="text-center-center">Свободно</p>
+                            </div>
+                            <div class="seminar-body-topic-head-showMore">
+                                <p class="text-center-center">Инфо</p>
+                            </div>
+                            <div class="seminar-body-topic-head-settings">
+                                <p class="text-center-center">Настройки</p>
+                            </div>
+                        </div>
+                        <div class="seminar-body-topic-wrapper">
+                            <div class="seminar-body-topic">
+                                <div class="seminar-body-topic-head">
+                                    <div class="seminar-body-topic-head-name">
+                                        <p class="text-left-center">Доклад №1</p>
+                                    </div>
+                                    <div class="seminar-body-topic-head-credit">
+                                        <p class="text-center-center">5</p>
+                                    </div>
+                                    <div class="seminar-body-topic-head-status">
+                                        <p class="text-center-center">3 / 4</p>
+                                    </div>
+                                    <div class="seminar-body-topic-head-showMore text-center-center">
+                                        <img class="icon-settings" alt="+" src="../src/icons/icon-show-more.svg"/>
+                                    </div>
+                                    <div class="seminar-body-topic-head-settings text-center-center">
+                                        <img class="icon-settings spin180" alt="+" src="../src/icons/icon-settings.svg"/>
+                                    </div>
+                                </div>
+                                <div class="seminar-body-topic-body">
+                                </div>
+                            </div>
+                            <div class="seminar-body-topic">
+                                <div class="seminar-body-topic-head">
+                                    <div class="seminar-body-topic-head-name">
+                                        <p class="text-left-center">Доклад №2</p>
+                                    </div>
+                                    <div class="seminar-body-topic-head-credit">
+                                        <p class="text-center-center">5</p>
+                                    </div>
+                                    <div class="seminar-body-topic-head-status">
+                                        <p class="text-center-center">3 / 4</p>
+                                    </div>
+                                    <div class="seminar-body-topic-head-showMore text-center-center">
+                                        <img class="icon-settings" alt="+" src="../src/icons/icon-show-more.svg"/>
+                                    </div>
+                                    <div class="seminar-body-topic-head-settings text-center-center">
+                                        <img class="icon-settings spin180" alt="+" src="../src/icons/icon-settings.svg"/>
+                                    </div>
+                                </div>
+                                <div class="seminar-body-topic-body">
+                                </div>
+                            </div>
+                            <div class="seminar-body-topic">
+                                <div class="seminar-body-topic-head">
+                                    <div class="seminar-body-topic-head-name">
+                                        <p class="text-left-center">Доклад №3</p>
+                                    </div>
+                                    <div class="seminar-body-topic-head-credit">
+                                        <p class="text-center-center">5</p>
+                                    </div>
+                                    <div class="seminar-body-topic-head-status">
+                                        <p class="text-center-center">3 / 4</p>
+                                    </div>
+                                    <div class="seminar-body-topic-head-showMore text-center-center">
+                                        <img class="icon-settings" alt="+" src="../src/icons/icon-show-more.svg" style="rotate: 180deg;"/>
+                                    </div>
+                                    <div class="seminar-body-topic-head-settings text-center-center">
+                                        <img class="icon-settings spin180" alt="+" src="../src/icons/icon-settings.svg"/>
+                                    </div>
+                                </div>
+                                <div class="seminar-body-topic-body">
+                                    <div class="seminar-body-topic-body-responsible">
+                                        <p>Выполняют: Абрамов Абрам, Вадимов Вадим, Глебов Глеб</p>
+                                    </div>
+                                    <div class="seminar-body-topic-body-questions">
+                                        <p>Вопросы: </p>
+                                        <div class="seminar-body-topic-body-questions-wrapper">
+                                            <p>Иванов Иван: <span class="question">Какой сырок купить?</span></p>
+                                            <p>Денисов Денис: <span class="question">Как меня зовут?</span></p>
+                                            <p>Борисов Борис: <span class="question">Какой то очень длинный и замудренный вопрос на который всем все равно но он очень очень невероятно насколько очень блин вообще длинный?</span></p>
+                                            
+                                            <div class="seminar-body-topic-body-questions-input">
+                                                <input type="text" placeholder="Введите свой вопрос">
+                                                <input type="image" src="../src/icons/icon-confirm.svg">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="seminar-body-topic-body-files">
+                                        <img alt="Файл" src="../src/icons/icon-file.png"/>
+                                        <p>Презентация.pptx</p>
+                                    </div>
+                                    <div class="seminar-body-topic-body-join text-center-center">
+                                        Join
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="seminar-body-topic">
+                                <div class="seminar-body-topic-head">
+                                    <div class="seminar-body-topic-head-name">
+                                        <p class="text-left-center">Доклад №4</p>
+                                    </div>
+                                    <div class="seminar-body-topic-head-credit">
+                                        <p class="text-center-center">5</p>
+                                    </div>
+                                    <div class="seminar-body-topic-head-status">
+                                        <p class="text-center-center">3 / 4</p>
+                                    </div>
+                                    <div class="seminar-body-topic-head-showMore text-center-center">
+                                        <img class="icon-settings" alt="+" src="../src/icons/icon-show-more.svg"/>
+                                    </div>
+                                    <div class="seminar-body-topic-head-settings text-center-center">
+                                        <img class="icon-settings spin180" alt="+" src="../src/icons/icon-settings.svg"/>
+                                    </div>
+                                </div>
+                                <div class="seminar-body-topic-body">
+                                </div>
+                            </div>
+
+                            <div class="seminar-body-create">
+                                <div class="add_btn create-topic text-center-center">
+                                    <img alt="+" src="../src/icons/icon-add.svg"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="seminar">
+                    <div class="seminar-head">
+                        <div class="seminar-head-name">
+                            <p class="text-left-center">Семинар №4</p>
+                        </div>
+                        <div class="seminar-head-deadline">
+                            <p class="text-center-center">13.09.2224</p>
+                        </div>
+                        <div class="seminar-head-topics">
+                            <p class="text-center-center">1 / 5</p>
+                        </div>
+                        <div class="seminar-head-showMore text-center-center"><img class="icon-settings icon-showMore" alt="Показать еще" src="../src/icons/icon-show-more.svg"></div>
+                        <div class="seminar-head-settings text-center-center"><img class="icon-settings spin180" alt="Настройки" src="../src/icons/icon-settings.svg"></div>
+                    </div>
+                </div>
+                <div class="seminar">
+                    <div class="seminar-head">
+                        <div class="seminar-head-name">
+                            <p class="text-left-center">Семинар №5</p>
+                        </div>
+                        <div class="seminar-head-deadline">
+                            <p class="text-center-center">13.09.2224</p>
+                        </div>
+                        <div class="seminar-head-topics">
+                            <p class="text-center-center">1 / 5</p>
+                        </div>
+                        <div class="seminar-head-showMore text-center-center"><img class="icon-settings icon-showMore" alt="Показать еще" src="../src/icons/icon-show-more.svg"></div>
+                        <div class="seminar-head-settings text-center-center"><img class="icon-settings spin180" alt="Настройки" src="../src/icons/icon-settings.svg"></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="seminar-create">
+                <div class="add_btn text-center-center">
+                    <img alt="+" src="../src/icons/icon-add.svg" />
+                </div>
+            </div>
+        </div>
+        <div class="main-users">
+            <div class="main-users-wrapper scrollable">
+                <p class="main-users-role">Администратор - 1</p>
+
+                <div class="users-user">
+                    <img class="users-user-avatar" alt="Аватар" src="../src/icons/avatar_void.png"/>
+                    <div class="users-user-name text-left-center">Иванов Иван Иванович</div>
+                </div>
+    
+                <p class="main-users-role">Преподаватель - 1</p>
+
+                <div class="users-user">
+                    <img class="users-user-avatar" alt="Аватар" src="../src/icons/avatar_void.png"/>
+                    <div class="users-user-name text-left-center">Петров Пётр Петрович</div>
+                </div>
+    
+                <p class="main-users-role">Студенты - 6</p>
+    
+                <div class="users-user">
+                    <img class="users-user-avatar" alt="Аватар" src="../src/icons/avatar_void.png"/>
+                    <div class="users-user-name text-left-center">Абрамов Абрам Абрамович</div>
+                </div>
+                <div class="users-user">
+                    <img class="users-user-avatar" alt="Аватар" src="../src/icons/avatar_void.png"/>
+                    <div class="users-user-name text-left-center">Борисов Борис Борисович</div>
+                </div>
+                <div class="users-user">
+                    <img class="users-user-avatar" alt="Аватар" src="../src/icons/avatar_void.png"/>
+                    <div class="users-user-name text-left-center">Вадимов Вадим Вадимович</div>
+                </div>
+                <div class="users-user">
+                    <img class="users-user-avatar" alt="Аватар" src="../src/icons/avatar_void.png"/>
+                    <div class="users-user-name text-left-center">Глебов Глеб Глебович</div>
+                </div>
+                <div class="users-user">
+                    <img class="users-user-avatar" alt="Аватар" src="../src/icons/avatar_void.png"/>
+                    <div class="users-user-name text-left-center">Денисов Денис Денисович</div>
+                </div>
+                <div class="users-user">
+                    <img class="users-user-avatar" alt="Аватар" src="../src/icons/avatar_void.png"/>
+                    <div class="users-user-name text-left-center">Евпатиев Евпат Евпатиевич</div>
+                </div>
+                <div class="users-user">
+                    <img class="users-user-avatar" alt="Аватар" src="../src/icons/avatar_void.png"/>
+                    <div class="users-user-name text-left-center">Жабраилов Жабраил Жабраилович</div>
+                </div>
+                <div class="users-user">
+                    <img class="users-user-avatar" alt="Аватар" src="../src/icons/avatar_void.png"/>
+                    <div class="users-user-name text-left-center">Евпатиев Евпат Евпатиевич</div>
+                </div>
+                <div class="users-user">
+                    <img class="users-user-avatar" alt="Аватар" src="../src/icons/avatar_void.png"/>
+                    <div class="users-user-name text-left-center">Евпатиев Евпат Евпатиевич</div>
+                </div>
+                <div class="users-user">
+                    <img class="users-user-avatar" alt="Аватар" src="../src/icons/avatar_void.png"/>
+                    <div class="users-user-name text-left-center">Евпатиев Евпат Евпатиевич</div>
+                </div>
+                <div class="users-user">
+                    <img class="users-user-avatar" alt="Аватар" src="../src/icons/avatar_void.png"/>
+                    <div class="users-user-name text-left-center">Евпатиев Евпат Евпатиевич</div>
+                </div>
+                <div class="users-user">
+                    <img class="users-user-avatar" alt="Аватар" src="../src/icons/avatar_void.png"/>
+                    <div class="users-user-name text-left-center">Евпатиев Евпат Евпатиевич</div>
+                </div>
+                <div class="users-user">
+                    <img class="users-user-avatar" alt="Аватар" src="../src/icons/avatar_void.png"/>
+                    <div class="users-user-name text-left-center">Евпатиев Евпат Евпатиевич</div>
+                </div>
+                <div class="users-user">
+                    <img class="users-user-avatar" alt="Аватар" src="../src/icons/avatar_void.png"/>
+                    <div class="users-user-name text-left-center">Евпатиев Евпат Евпатиевич</div>
+                </div>
+                <div class="users-user">
+                    <img class="users-user-avatar" alt="Аватар" src="../src/icons/avatar_void.png"/>
+                    <div class="users-user-name text-left-center">Евпатиев Евпат Евпатиевич</div>
+                </div>
+                <div class="users-user">
+                    <img class="users-user-avatar" alt="Аватар" src="../src/icons/avatar_void.png"/>
+                    <div class="users-user-name text-left-center">Евпатиев Евпат Евпатиевич</div>
+                </div>
+                <div class="users-user">
+                    <img class="users-user-avatar" alt="Аватар" src="../src/icons/avatar_void.png"/>
+                    <div class="users-user-name text-left-center">Евпатиев Евпат Евпатиевич</div>
+                </div>
+                <div class="users-user">
+                    <img class="users-user-avatar" alt="Аватар" src="../src/icons/avatar_void.png"/>
+                    <div class="users-user-name text-left-center">Евпатиев Евпат Евпатиевич</div>
+                </div>
+                <div class="users-user">
+                    <img class="users-user-avatar" alt="Аватар" src="../src/icons/avatar_void.png"/>
+                    <div class="users-user-name text-left-center">Евпатиев Евпат Евпатиевич</div>
+                </div>
+                <div class="users-user">
+                    <img class="users-user-avatar" alt="Аватар" src="../src/icons/avatar_void.png"/>
+                    <div class="users-user-name text-left-center">Евпатиев Евпат Евпатиевич</div>
+                </div>
+                <div class="users-user">
+                    <img class="users-user-avatar" alt="Аватар" src="../src/icons/avatar_void.png"/>
+                    <div class="users-user-name text-left-center">Евпатиев Евпат Евпатиевич</div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer-logo site-logo">
+            <strong>Task</strong>Master
+        </div>
+        <div class="footer-text">
+            <p>Support: taskmastersupport@mail.ru</p>
+            <p>&copy;"TheBoys" Team. All right reserved.</p>
+        </div>   
+    </footer>
+</body>
+</html>

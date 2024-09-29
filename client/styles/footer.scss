@@ -1,0 +1,20 @@
+.footer{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+
+    &-logo{
+        margin: 0 var(--margin-big);
+    }
+
+    &-text{
+        border-left: 1px solid var(--border-color);
+        height: var(--font-size-logo);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding-left: var(--margin-small);
+    }
+}

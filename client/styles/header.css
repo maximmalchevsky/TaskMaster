@@ -1,0 +1,27 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+.header > * {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.header-logo {
+  margin-left: var(--margin-big);
+}
+.header-profile {
+  margin-right: var(--margin-big);
+}
+.header-profile-avatar {
+  width: 40px;
+  border-radius: 50%;
+  margin-right: var(--margin-small);
+}
+.header-profile-name {
+  margin-right: var(--margin-small);
+  cursor: default;
+}/*# sourceMappingURL=header.css.map */
